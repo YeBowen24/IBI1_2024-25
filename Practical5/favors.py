@@ -5,7 +5,10 @@ df = pd.DataFrame(list(dic.items()), columns=['Language', 'Percentage'])
 dfsort = df.sort_values(by='Percentage',ascending=False)
 #dfsort.plot.bar(x='Language', y='Percentage')
 #plt.show()
-df1 = df[df.Language == 'Python']
-df2 = df[df.Language == 'SQL']
-df3 = df[df['Percentage'] >= 50]
-print(df3)
+#df1 = df[df.Language == 'Python']
+#df2 = df[df.Language == 'SQL']
+#df3 = df[df['Percentage'] >= 50]
+print(df)
+search = input()
+out = df[df.Language == search]['Percentage']
+print(out)
