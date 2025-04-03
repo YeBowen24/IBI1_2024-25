@@ -1,7 +1,7 @@
 import re 
 
 def search_tata(seq): #搜索TATABOX的函数
-    tata = r"TATA.A."
+    tata = r"TATA[AT]A[AT]"
     match = re.findall(tata,seq)#正则表达式搜索
     if match :
         return True
