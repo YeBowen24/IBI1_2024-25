@@ -10,11 +10,15 @@ def search_tata(seq): #搜索TATABOX的函数
 
 def output(seq,gene):
     with open('D:/vscodefile/IBI1_2024-25/Practical7/tata_genes.fa', 'w') as file:
-        for i in range(len(seq)):
+        for i in range(len(seq)-1):
             gene_input = '>' + gene[i] + '\n'
             seq_input = seq[i] + '\n'
             file.write(gene_input)
             file.write(seq_input)
+        gene_input = '>' + gene[-1] + '\n'
+        seq_input = seq[-1]
+        file.write(gene_input)
+        file.write(seq_input)
         file.close()
 
 with open("D:/vscodefile/IBI1_2024-25/Practical7/Saccharomyces_cerevisiae.R64-1-1.cdna.all.fa", 'r') as file:
@@ -41,6 +45,10 @@ with open("D:/vscodefile/IBI1_2024-25/Practical7/Saccharomyces_cerevisiae.R64-1-
             geneseq = ''
         else : #RNA line
             geneseq = geneseq + lines
+    if geneseq != '' :
+        if search_tata(geneseq): #搜索tatabox
+            allgene.append(gene_name)
+            allseq.append(geneseq)
     file.close()
 output(allseq,allgene)
 print(file)
