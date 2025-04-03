@@ -29,10 +29,9 @@ with open("D:/vscodefile/IBI1_2024-25/Practical7/Saccharomyces_cerevisiae.R64-1-
     for lines in all_lines :
         lines = lines.rstrip()
         if lines[0] == '>' : #deal with the gene name
-            if geneseq != '' :
-                if search_tata(geneseq): #搜索tatabox
-                    allgene.append(gene_name)
-                    allseq.append(geneseq)
+            if geneseq != '' and search_tata(geneseq) :
+                allgene.append(gene_name)
+                allseq.append(geneseq)
             pos = lines.find('gene:') #find the gene name
             pos += 5
             gene_name = ''
@@ -45,7 +44,7 @@ with open("D:/vscodefile/IBI1_2024-25/Practical7/Saccharomyces_cerevisiae.R64-1-
             geneseq = ''
         else : #RNA line
             geneseq = geneseq + lines
-    if geneseq != '' :
+    if geneseq != '' : #处理最后一行的未处理的序列
         if search_tata(geneseq): #搜索tatabox
             allgene.append(gene_name)
             allseq.append(geneseq)
