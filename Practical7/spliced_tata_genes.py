@@ -26,7 +26,7 @@ def judge_in(sp, geneseq):
     global gene_name
     if sp in geneseq : #处理上一次的遗留序列
         count = count_tata(geneseq) #这是TATAbox的计数
-        output_line = '>%s %d'%(gene_name,count)
+        output_line = '>%s -- %d TATAbox(es) in its structure.'%(gene_name,count)
         allgene.append(output_line) #写入基因名称以及计数
         allseq.append(geneseq)
 
