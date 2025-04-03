@@ -22,9 +22,16 @@ def output(seq,gene,file_name): #写入文件
         file.write(seq[-1])
         file.close()
 
-def judge_in(sp, geneseq):
+def judge_in(sp, seq):
     global gene_name
-    if sp in geneseq : #处理上一次的遗留序列
+    beg = sp[:2]
+    end = sp[2:]
+    begin = seq.find(beg)
+    if begin != -1:
+        ending = seq.find(end,begin)
+    else :
+        ending = -1
+    if ending != -1 :
         count = count_tata(geneseq) #这是TATAbox的计数
         output_line = '>%s -- %d TATAbox(es) in its structure.'%(gene_name,count)
         allgene.append(output_line) #写入基因名称以及计数
