@@ -1,0 +1,3 @@
+Due to my insufficient understanding of the topic, the compilation process of the Task1 code encountered some problems, which took a long time.
+My own Task2 code had problems, so I used AI tools to correct my code. However, the correction effect of AI tools on my code did not meet my expectations.
+For Task3, with my current understanding and learning of the code, I cannot write a good enough code that meets the requirements, so I used AI tools to generate my code.
