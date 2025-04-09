@@ -1,24 +1,24 @@
 import re 
 
-def search_tata(seq): #搜索TATABOX的函数
+def search_tata(seq): #Function that search the tata structure
     tata = r"TATA[AT]A[AT]"
-    match = re.findall(tata,seq)#正则表达式搜索
+    match = re.findall(tata,seq) #regular expression search, 'match' is list
     if match :
         return True
     else :
         return False
 
-def count_tata(seq): #对TATABOX结构数量进行计数
+def count_tata(seq): #count the number of tata structure
     tata = r"TATA[AT]A[AT]"
     all_tata = re.findall(tata,seq)
     return len(all_tata)
 
-def output(seq,gene,file_name): #写入文件
+def output(seq,gene,file_name): #create and write the file
     with open('D:/vscodefile/IBI1_2024-25/Practical7/%s'%(file_name), 'w') as file:
         for i in range(len(seq)-1):
             file.write(gene[i]+'\n')
             file.write(seq[i]+'\n')
-        file.write(gene[-1]+'\n')  #增加代码存储空间，但是适量减少运行时间
+        file.write(gene[-1]+'\n')  #Slightly increases the storage space used by the code, but slightly reduces the running time.
         file.write(seq[-1])
         file.close()
 
@@ -26,19 +26,19 @@ def judge_in(sp, seq):
     global gene_name
     beg = sp[:2]
     end = sp[2:]
-    begin = seq.find(beg)
+    begin = seq.find(beg) #search the beginning
     if begin != -1:
-        ending = seq.find(end,begin)
+        ending = seq.find(end,begin) #just search the first beg and the last end
     else :
         ending = -1
     if ending != -1 :
-        count = count_tata(geneseq) #这是TATAbox的计数
+        count = count_tata(geneseq) #This is the count of TATAbox structure
         output_line = '>%s -- %d TATAbox(es) in its structure.'%(gene_name,count)
-        allgene.append(output_line) #写入基因名称以及计数
-        allseq.append(geneseq)
+        allgene.append(output_line) #add the gene name and the count of tata
+        allseq.append(geneseq) #add the sequence along with the gene name
 
 all_sp = ['GTAG', 'GCAG','ATAC']
-while True : #判断输入是否合法
+while True : #Check the input is valid or not
     sp = input('Input one of three possible splice donor/acceptor combinations (GTAG/GCAG/ATAC) here.')
     if sp in all_sp :
         break
@@ -46,9 +46,9 @@ while True : #判断输入是否合法
         print('Invalid input. Please choose one of three possible splice donor/acceptor combinations (GTAG/GCAG/ATAC).')
 file_name = '%s_spliced_genes.fa'%(sp)  #根据输入创建文件名
 
-allseq = [] #存储所有的基因序列
-allgene = [] #存储所有的基因名称
-gene_name = '' #防报错
+allseq = [] #Store all the genetic sequences
+allgene = [] #Store all the genetic names
+gene_name = '' #prevent the errors
 
 with open("D:/vscodefile/IBI1_2024-25/Practical7/Saccharomyces_cerevisiae.R64-1-1.cdna.all.fa", 'r') as file: 
     all_lines = file #read the files #变量类型：列表
