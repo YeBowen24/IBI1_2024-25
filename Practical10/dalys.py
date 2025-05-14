@@ -1,22 +1,38 @@
+#create dalys.py
+
+#inport the necessary libraries
 import os
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
 
+#read the file "Practical10" by using the absolute path 
 os.chdir("D:\\Vscodefile\\IBI1_2024-25\\Practical10")
 #os.getcwd() #test code
+
+#read the content of the .csv file into a dataframe object 'dalys_data'
 dalys_data = pd.read_csv("dalys-rate-from-all-causes.csv")
+
+#The code below are from the Practical and are used for testing (now they wouldn't be run)
+'''
+pseudo-code:
+output the first five rows
+show what is in the first row, fourth column
+show what is in the third row, the first to the fourth column
+show the data in the 1-2 rows
+select the data in the 
+'''
 #print(dalys_data.head(5))  #test code
 #print(dalys_data.iloc[0,3]) #test code
-#print(dalys_data.iloc[2,0:5])
+#print(dalys_data.iloc[2,0:5]) #if the number in the position of '5' of '0:5' is bigger than the count of columns, then it would output all the columns
 #print(dalys_data.iloc[0:2,:])
 #print(dalys_data.iloc[0:10:2,0:5])
 #dalys_data.iloc[0:3,[0,1,3]]
 #my_columns = [True, True, False, True]
 #dalys_data.iloc[0:3,my_columns]
 #print(dalys_data.loc[2:4,"Year"])
+#print(dalys_data.describe().loc['mean','DALYs'])
 
-#The code above are from the Practical and are used for testing
 
 AFG = dalys_data.iloc[:10,:]
 print(AFG.iloc[:,2]) #showing the third column (the 'Year' column) for the first 10 rows
@@ -41,6 +57,8 @@ print('The UK’s average DALY is %s than the France’s'%(comp))
 
 print()#split the outputs
 
+#sssss
+
 daly_uk = dalys_data.loc[dalys_data.Entity == "United Kingdom", ["DALYs", "Year"]] #get the 'Year' and 'DALYs' column and data
 plt.plot(daly_uk.Year, daly_uk.DALYs, 'b+') #'b+'string : color and the type of the each data point(here I use the default value)
 plt.xticks(daly_uk.Year,rotation=60) #Asked AI for this code: rotation: Positive numbers represent counterclockwise rotation of the X-axis label, and negative numbers represent clockwise rotation of the label
@@ -64,6 +82,5 @@ with open("question.txt", "r", encoding="utf-8") as ques:
     plt.title("The DALYs' change of five permanent members of the UN Security Council")
     plt.legend()
     plt.show()
-
 
 

@@ -9,7 +9,7 @@ def rename(RNA):#将mRNA链转换为只有数字的列表，方便之后判定�
     return finRNA
 
 #正在考虑是否通过多个自定义函数来简化代码主体（就是变好看点）
-
+print('Please put the Protine file in the ')
 amino=[[['lys','asn','lys','asn'],['thr','thr','thr','thr'],['arg','ser','arg','ser'],['ile','ile','met','ile']],[['gln','his','gln','his'],['pro','pro','pro','pro'],['arg','arg','arg','arg'],['leu','leu','leu','leu']],[['glu','asp','glu','asp'],['ala','ala','ala','ala'],['gly','gly','gly','gly'],['val','val','val','val']],[['stp','tyr','stp','tyr'],['ser','ser','ser','ser'],['stp','cys','trp','cys'],['leu','phe','leu','phe']]]
 #手动建造氨基酸表，如'AAU'经过rename()之后变为'114'并通过amino[1][1][4]定位为'asn'
 RNA=input('input RNA here')#输入RNA序列
