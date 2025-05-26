@@ -14,7 +14,7 @@ def count_tata(seq): #count the number of tata structure
     return len(all_tata)
 
 def output(seq,gene,file_name): #create and write the file
-    with open('D:/vscodefile/IBI1_2024-25/Practical7/%s'%(file_name), 'w') as file:
+    with open('%s'%(file_name), 'w') as file:
         for i in range(len(seq)-1):
             file.write(gene[i]+'\n')
             file.write(seq[i]+'\n')
@@ -50,7 +50,7 @@ allseq = [] #Store all the genetic sequences
 allgene = [] #Store all the genetic names
 gene_name = '' #prevent the errors
 
-with open("D:/vscodefile/IBI1_2024-25/Practical7/Saccharomyces_cerevisiae.R64-1-1.cdna.all.fa", 'r') as file: 
+with open("Saccharomyces_cerevisiae.R64-1-1.cdna.all.fa", 'r') as file: 
     all_lines = file #read the files #Variable type: list
     geneseq = ''#Temporary variable for storing gene sequences
     for lines in all_lines :
