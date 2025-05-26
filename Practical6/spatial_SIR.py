@@ -38,6 +38,8 @@ Save the image as a file
 After the simulation is complete, print the completion information and the filenames of the saved images
 '''
 
+# After finished writing the pseudocode, I gave AI the pseudocode and let AI write the Real Code 
+
 # Initialize Grid
 
 GRID_SIZE = 100      # Grid size (100x100)
@@ -58,10 +60,11 @@ for t in range(TIME_STEPS + 1):
     recovery_mask = np.random.rand(len(infected_coords)) < GAMMA
     # Convert eligible infected individuals to recovered
     for idx in infected_coords[recovery_mask]:
-        population[tuple(idx)] = 2
+        population[tuple(idx)] = 2  
     # Step 2: Handle new infections
     new_infections = []
     # Iterate through all currently infected individuals
+    # Attempt at propagating infection from infected cells to its neighbours
     for (i, j) in infected_coords: # Check 8 neighbors
         for di in [-1, 0, 1]: 
             for dj in [-1, 0, 1]:

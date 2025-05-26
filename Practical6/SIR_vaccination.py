@@ -2,8 +2,9 @@ import numpy as np
 import matplotlib.pyplot as plt
 import random as r
 
-def status(array,beta1) :
+def status(array,beta1) : 
     global gamma
+    # Asked AI and used AI-generated code
     operation = {0: lambda x: x + np.random.choice([0, 1], p=[1 - beta1, beta1]), 1: lambda x: x + np.random.choice([0, 1], p=[1 - gamma, gamma]), 2: lambda x: x}
     array = np.array([operation[status](status) for status in array])
     return array
