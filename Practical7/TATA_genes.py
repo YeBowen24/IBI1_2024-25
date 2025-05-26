@@ -1,15 +1,15 @@
 import re 
 
-def search_tata(seq): #搜索TATABOX的函数
+def search_tata(seq): # Function to search for TATABOX
     tata = r"TATA[AT]A[AT]"
-    match = re.findall(tata,seq)#正则表达式搜索
+    match = re.findall(tata,seq) # Regular expression search
     if match :
         return True
     else :
         return False
 
 def output(seq,gene):
-    with open('D:/vscodefile/IBI1_2024-25/Practical7/tata_genes.fa', 'w') as file:
+    with open('tata_genes.fa', 'w') as file:
         for i in range(len(seq)-1):
             gene_input = '>' + gene[i] + '\n'
             seq_input = seq[i] + '\n'
@@ -21,7 +21,7 @@ def output(seq,gene):
         file.write(seq_input)
         file.close()
 
-with open("D:/vscodefile/IBI1_2024-25/Practical7/Saccharomyces_cerevisiae.R64-1-1.cdna.all.fa", 'r') as file:
+with open("Saccharomyces_cerevisiae.R64-1-1.cdna.all.fa", 'r') as file:
     all_lines = file #read the files
     allgene = []
     geneseq = ''
@@ -44,8 +44,8 @@ with open("D:/vscodefile/IBI1_2024-25/Practical7/Saccharomyces_cerevisiae.R64-1-
             geneseq = ''
         else : #RNA line
             geneseq = geneseq + lines
-    if geneseq != '' : #处理最后一行的未处理的序列
-        if search_tata(geneseq): #搜索tatabox
+    if geneseq != '' : #Process the unprocessed sequence from the last line
+        if search_tata(geneseq): #Search for tatabox
             allgene.append(gene_name)
             allseq.append(geneseq)
     file.close()

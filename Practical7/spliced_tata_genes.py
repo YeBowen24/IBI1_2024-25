@@ -44,17 +44,17 @@ while True : #Check the input is valid or not
         break
     else :
         print('Invalid input. Please choose one of three possible splice donor/acceptor combinations (GTAG/GCAG/ATAC).')
-file_name = '%s_spliced_genes.fa'%(sp)  #根据输入创建文件名
+file_name = '%s_spliced_genes.fa'%(sp)  #Create filename based on input
 
 allseq = [] #Store all the genetic sequences
 allgene = [] #Store all the genetic names
 gene_name = '' #prevent the errors
 
 with open("D:/vscodefile/IBI1_2024-25/Practical7/Saccharomyces_cerevisiae.R64-1-1.cdna.all.fa", 'r') as file: 
-    all_lines = file #read the files #变量类型：列表
-    geneseq = ''#临时存储基因序列用的变量
+    all_lines = file #read the files #Variable type: list
+    geneseq = ''#Temporary variable for storing gene sequences
     for lines in all_lines :
-        lines = lines.rstrip() #去除换行符
+        lines = lines.rstrip() #Remove newline characters
         if lines[0] == '>' : #deal with the gene name
             if geneseq != '' and search_tata(geneseq):
                 judge_in(sp, geneseq)
@@ -68,10 +68,10 @@ with open("D:/vscodefile/IBI1_2024-25/Practical7/Saccharomyces_cerevisiae.R64-1-
                     break
                 pos+=1
             geneseq = ''
-        else : #RNA 序列存储
+        else : #Remove newline characters
             geneseq = geneseq + lines
     if geneseq != '' and search_tata(geneseq):
         judge_in(sp, geneseq)
     file.close()
 output(allseq,allgene,file_name)
-print(file)
+print('The file has been successfully generated!')
