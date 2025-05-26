@@ -8,6 +8,6 @@ weight = int(input('Input your weight(kg) here(10kg-100kg) :'))
 strength = input('Input the strength of the paracetamol you use here: e.g. 120mg/5ml please input as 120/5 ')
 strength = strength.split('/')
 strength = [int(x) for x in strength]
-V = consume_volume(weight,strength)
-print('You need %dml of the paracetamol you provided'%(V))
+V = consume_volume(weight,strength) # Function call 
+print('You need %dml of the paracetamol (you provided in the input).'%(V))
 #list_of_ints = [int(x) for x in list_of_strings]
