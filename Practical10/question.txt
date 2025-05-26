@@ -1,2 +1,7 @@
 Draw the plot of the DALYs' change of five permanent members of the UN Security Council
-codes are at the row 54-66
+codes about the question are at the row 128-140
+Result Discussion:
+    Russia's DALYs were the highest among the five countries for most of the period, which may be partly related to its natural environment and local customs.
+    China's DALYs saw a significant decrease, falling from an initially high level to one closer to that of the UK and France. This likely reflects its economic development, improvements in public health, and better medical conditions.
+    The Americas experienced a relatively stable decline, though not as pronounced as China's, which may also reflect slower improvements in economic development, public health, and medical conditions.
+    The UK and France consistently maintained low DALYs with a relatively stable downward trend. This is likely due to their long-standing public health policies, widespread health insurance, and health promotion measures.
