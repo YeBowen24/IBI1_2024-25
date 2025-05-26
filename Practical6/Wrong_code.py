@@ -1,11 +1,16 @@
+#This is the wrong version of the SIR_vaccination.py
+#The wrong plot is in the same folder
+
 import numpy as np
 import matplotlib.pyplot as plt
 import random as r
-
-def status(array,beta1) :
-    global gamma
-    operation = {0: lambda x: x + np.random.choice([0, 1], p=[1 - beta1, beta1]), 1: lambda x: x + np.random.choice([0, 1], p=[1 - gamma, gamma]), 2: lambda x: x}
-    array = np.array([operation[status](status) for status in array])
+def infect(array,beta1) :
+    N = 10000
+    plus = np.array(np.random.choice(range(2),len(array),p=[1-beta1,beta1]))
+    array = array + plus
+    for i in range(len(array)) :
+        if array[i] >= 2:
+            array[i] = 2
     return array
     
 def betacount(beta,array):
@@ -29,12 +34,12 @@ for vac in range(0,101,10):
     lst = [0]*(N-vac_n) #only calc the people who aren't vaccinated to decrease the calculation 
     arr = np.array(lst) #Change the data form to array
     lst_inf = [0]
-    if vac_n != N:
+    if vac != 1:
         arr[-1] = 1 #The first person's status is changed to '1'(infected)
         lst_inf=[1]
     for i in range(time): #loop
         beta1=betacount(beta,arr)
-        arr=status(arr,beta1) #change the status of each person
+        arr=infect(arr,beta1) #change the status of each person
         inf_num=count(arr) #record the status
         lst_inf.append(inf_num)
     plt.plot(x, lst_inf, label=str(int(vac*100))+'%' )

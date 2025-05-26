@@ -120,9 +120,12 @@ gamma = 0.05
 time = 1000  # 固定时间步数
 x = list(range(time + 1))
 
-# 遍历不同疫苗接种比例
-for vac in range(0, 101, 10):
-    vac_percent = vac / 100.0
+# 明确指定需要模拟的 11 个疫苗接种比例
+vaccination_rates = [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
+
+# 遍历指定的疫苗接种比例
+for vac_percent in vaccination_rates:
+    vac_percent = vac_percent / 100.0
     vac_n = int(vac_percent * N)
     arr = np.zeros(N, dtype=int)
     
@@ -146,7 +149,7 @@ for vac in range(0, 101, 10):
         arr = infect(arr, beta1)           # 处理感染
         lst_inf.append(np.sum(arr == 1))   # 记录当前感染数
     
-    plt.plot(x, lst_inf, label=f'{vac}%')
+    plt.plot(x, lst_inf, label=f'{int(vac_percent*100)}%')
 
 # 图表标注
 plt.xlabel('Time')

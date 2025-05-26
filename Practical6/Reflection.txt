@@ -1,3 +1,9 @@
-Due to my insufficient understanding of the topic, the compilation process of the Task1 code encountered some problems, which took a long time.
-My own Task2 code had problems, so I used AI tools to correct my code. However, the correction effect of AI tools on my code did not meet my expectations.
-For Task3, with my current understanding and learning of the code, I cannot write a good enough code that meets the requirements, so I used AI tools to generate my code.
+Due to my insufficient understanding of the topic, the compilation process of the Task1 code encountered some problems, which took a long time. But finally finished successfully.
+
+My code that cope with Task2 code successfully made the curve and the plot, but the algorithm have some problems and it takes too much time to draw the curve. 
+Also, at the first time when I was coding, I mistakenly used beta to calculate the recovery rate of the infected people. So an abnormal bulge wrongly appeared in the second half of the '90%' curve 
+
+For Task3, with my current understanding and learning of the code, I can't write a code that is good enough and meets the requirements, so I used AI tools to generate my code.
+
+There is a lot to learn in optimizing the code. These tasks can be accomplished using the code and algorithms learned now, but there is much room for improvement in terms of program running time and algorithm complexity
+But I like it! I like my mood when I solve a very difficult problem. I really enjoy the process of trying every possible way to solve the problem.
