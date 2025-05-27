@@ -9,12 +9,12 @@ def distance_count(seq1,seq2):
 
 def read_seq(file_name):
     with open('%s'%(file_name), 'r') as file:
-        geneseq = ''#临时存储基因序列用的变量
+        geneseq = '' # temporary variable to store gene sequence
         for lines in file:
-            lines = lines.rstrip() #去除换行符
+            lines = lines.rstrip() # remove newline characters
             if lines[0] == '>' : #deal with the gene name
                 continue
-            else : #RNA 序列存储
+            else : # store RNA sequence
                 geneseq = geneseq + lines
         file.close()
     return geneseq
