@@ -15,6 +15,8 @@ plt.figure(figsize=(8, 5))
 x = df.Language
 y = df.Percentage
 plt.bar(x,y)
+plt.xlabel('Language Type')
+plt.ylabel('Number of Users')
 plt.legend()
 plt.show() #Draw the plot
 
