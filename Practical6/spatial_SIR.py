@@ -83,11 +83,9 @@ for t in range(TIME_STEPS + 1):
     # Step 3: Save images at key time points
     if t in SAVE_TIMES:
         plt.figure(figsize=(6, 4), dpi=150)
-        plt.imshow(
-            population,
-            cmap='viridis',    # Color map
-            interpolation='nearest'
-        )
+        plt.imshow(population,cmap='viridis',interpolation='nearest')
+        img = plt.imshow(population,cmap='viridis',interpolation='nearest')
+        plt.colorbar(img, ticks=[0, 1, 2], label='State')
         plt.title(f'2D SIR Model (t={t})')
         plt.axis('off')
         plt.savefig(f'spatial_SIR_t{t}.png')
